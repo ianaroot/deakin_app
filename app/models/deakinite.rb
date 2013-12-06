@@ -26,4 +26,10 @@ class Deakinite < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
+  validates :password, presence: true
+  validates :password_confirmation, presence: true
+
+  def establish_debt_to(other_deakinite, amount)
+    self.payments_owing.create!(owed_to_id: other_deakinite.id, amount: amount)
+  end
 end
