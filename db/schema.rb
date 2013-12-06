@@ -11,16 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131205235221) do
+ActiveRecord::Schema.define(:version => 20131206002648) do
 
   create_table "deakinites", :force => true do |t|
     t.string   "name"
     t.string   "email"
-    t.string   "string"
     t.boolean  "eats_house_food"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.string   "password_digest"
+  end
+
+  create_table "payments", :force => true do |t|
+    t.float    "amount"
+    t.string   "owed_from"
+    t.string   "owed_to"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "paid",       :default => false
   end
 
 end
