@@ -24,11 +24,11 @@ ActiveRecord::Schema.define(:version => 20131206002648) do
 
   create_table "payments", :force => true do |t|
     t.float    "amount"
-    t.string   "owed_from"
-    t.string   "owed_to"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-    t.boolean  "paid",       :default => false
+    t.integer  "owed_from_id"
+    t.integer  "owed_to_id"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.boolean  "paid",         :default => false
   end
 
 end
