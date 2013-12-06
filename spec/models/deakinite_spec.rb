@@ -32,11 +32,43 @@ describe Deakinite do
   it { should be_valid }
 
   describe "when name is not present" do
-
+    before { @deakinite.name = " "}
+    it { should_not be_valid}
   end
 
   describe "when email is not present" do
+    before { @deakinite.email = " "}
+    it { should_not be_valid }
+  end
 
+  describe "when email format is invalid" do
+    it "should be invalid" do
+      addresses = %w[user@foo,com user_at_foo.org example.user@foo. foo@bar_baz.com foo@bar+baz.com]
+      addresses.each do |invalid_address|
+        @deakinite.email = invalid_address
+        @deakinite.should_not be_valid
+      end
+    end
+  end
+
+  describe "when email format is valid" do
+    it "should be valid" do
+      addresses = %w[user@foo.COM A_US-er@f.b.org frst.lst@foo.jp a+b@baz.cn]
+      addresses.each do |valid_address|
+        @deakinite.email = valid_address
+        @deakinite.should be_valid
+      end
+    end
+  end
+
+  describe "when email address is already taken" do
+    before do
+      deakinite_with_same_email = @deakinite.dup
+      deakinite_with_same_email.email = @deakinite.email.upcase
+      deakinite_with_same_email.save
+    end
+
+    it { should_not be_valid }
   end
 
 
