@@ -24,8 +24,8 @@ describe Deakinite do
   it { should respond_to(:password_digest) }
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:eats_house_food) }
-  it { should respond_to(:payments_owed) }
-  it { should respond_to(:payments_owing) }
+  it { should respond_to(:debts_owed) }
+  it { should respond_to(:debts_owing) }
   it { should respond_to(:owed_deakinites) }
   it { should respond_to(:owing_deakinites) }
 

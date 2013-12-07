@@ -1,4 +1,4 @@
-class UnpaidDebt < Payment
+class UnpaidDebt < Debt
 
   def record_as_paid
     self.type = "PaidDebt"

@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(:version => 20131206031132) do
 
   add_index "deakinites", ["email"], :name => "index_deakinites_on_email", :unique => true
 
-  create_table "payments", :force => true do |t|
+  create_table "debts", :force => true do |t|
     t.float    "amount"
     t.integer  "owed_from_id"
     t.integer  "owed_to_id"

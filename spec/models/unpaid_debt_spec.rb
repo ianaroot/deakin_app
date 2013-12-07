@@ -5,8 +5,8 @@ describe UnpaidDebt do
   before { @unpaid_debt = UnpaidDebt.new }
   subject { @unpaid_debt }
 
-  describe "should inherit from Payment" do
-    UnpaidDebt.superclass { should == Payment }
+  describe "should inherit from Debt" do
+    UnpaidDebt.superclass { should == Debt }
   end
 
   describe "should be able to record as paid" do

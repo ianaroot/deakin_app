@@ -15,10 +15,10 @@ class Deakinite < ActiveRecord::Base
   attr_accessible :eats_house_food, :email, :name, :password, :password_confirmation
   has_secure_password
 
-  has_many :payments_owed, foreign_key: "owed_to_id", class_name: "UnpaidDebt"
-  has_many :payments_owing, foreign_key: "owed_from_id", class_name: "UnpaidDebt"
-  has_many :owed_deakinites, through: :payments_owing, source: :owed_to
-  has_many :owing_deakinites, through: :payments_owed, source: :owed_from
+  has_many :debts_owed, foreign_key: "owed_to_id", class_name: "UnpaidDebt"
+  has_many :debts_owing, foreign_key: "owed_from_id", class_name: "UnpaidDebt"
+  has_many :owed_deakinites, through: :debts_owing, source: :owed_to
+  has_many :owing_deakinites, through: :debts_owed, source: :owed_from
 
   before_save { email.downcase! }
 
@@ -30,6 +30,6 @@ class Deakinite < ActiveRecord::Base
   validates :password_confirmation, presence: true
 
   def establish_debt_to(other_deakinite, amount)
-    self.payments_owing.create!(owed_to_id: other_deakinite.id, amount: amount)
+    self.debts_owing.create!(owed_to_id: other_deakinite.id, amount: amount)
   end
 end

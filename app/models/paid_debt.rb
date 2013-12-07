@@ -1,3 +1,3 @@
-class PaidDebt < Payment
+class PaidDebt < Debt
 
 end
