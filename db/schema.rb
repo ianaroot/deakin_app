@@ -28,9 +28,9 @@ ActiveRecord::Schema.define(:version => 20131206031132) do
     t.float    "amount"
     t.integer  "owed_from_id"
     t.integer  "owed_to_id"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
-    t.boolean  "paid",         :default => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+    t.string   "type",         :default => "UnpaidDebt"
   end
 
 end

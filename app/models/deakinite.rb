@@ -15,8 +15,8 @@ class Deakinite < ActiveRecord::Base
   attr_accessible :eats_house_food, :email, :name, :password, :password_confirmation
   has_secure_password
 
-  has_many :payments_owed, foreign_key: "owed_to_id", class_name: "Payment"
-  has_many :payments_owing, foreign_key: "owed_from_id", class_name: "Payment"
+  has_many :payments_owed, foreign_key: "owed_to_id", class_name: "UnpaidDebt"
+  has_many :payments_owing, foreign_key: "owed_from_id", class_name: "UnpaidDebt"
   has_many :owed_deakinites, through: :payments_owing, source: :owed_to
   has_many :owing_deakinites, through: :payments_owed, source: :owed_from
 

@@ -1,0 +1,3 @@
+class PaidDebt < Payment
+
+end

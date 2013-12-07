@@ -1,5 +1,5 @@
 class AddPaidStatusToPayments < ActiveRecord::Migration
   def change
-    add_column :payments, :paid, :boolean, default: false
+    add_column :payments, :type, :string, default: "UnpaidDebt"
   end
 end
