@@ -15,7 +15,9 @@ require 'spec_helper'
 
 describe Deakinite do
 
-  before { @deakinite = FactoryGirl.create(:deakinite)}
+  # before { @deakinite = FactoryGirl.create(:deakinite)}
+  before { @deakinite = Deakinite.new(name: "snoop", email: "snoop@snoop.com", password: "password",
+                                      password_confirmation: "password") }
   subject { @deakinite }
 
   it { should respond_to(:name) }
@@ -32,12 +34,12 @@ describe Deakinite do
   it { should be_valid }
 
   describe "when name is not present" do
-    before { @deakinite.name = " "}
+    before { @deakinite.name = " " }
     it { should_not be_valid}
   end
 
   describe "when email is not present" do
-    before { @deakinite.email = " "}
+    before { @deakinite.email = " " }
     it { should_not be_valid }
   end
 
@@ -73,13 +75,13 @@ describe Deakinite do
 
 
   describe "when password is not present" do
-    before { @deakinite.password = " "}
+    before { @deakinite.password = " " }
     it { should_not be_valid }
   end
 
 
   describe "when password does not match confirmation" do
-    before { @deakinite.password_confirmation = "mismatch"}
+    before { @deakinite.password_confirmation = "mismatch" }
     it { should_not be_valid }
   end
 

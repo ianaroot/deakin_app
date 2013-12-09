@@ -8,7 +8,7 @@ describe "Static pages" do
   
 
     describe "for non-signed-in users" do
-      it { should have_selector('nav', text: "log in") }
+      it { should have_selector('nav', link: 'log in') }
     end
   end
 end
