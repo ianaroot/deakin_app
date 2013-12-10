@@ -8,7 +8,7 @@
 names = ["schlag", "shark", "snoop", "sharman"]
 
 names.each do |name|
-  deak = Deakinite.new(name: name, email: "#{name}@#{name}.com", password: "password",
+  deak = User.new(name: name, email: "#{name}@#{name}.com", password: "password",
                         password_confirmation: "password" )
   deak.save
 end

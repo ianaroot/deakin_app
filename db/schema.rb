@@ -13,7 +13,16 @@
 
 ActiveRecord::Schema.define(:version => 20131207111229) do
 
-  create_table "deakinites", :force => true do |t|
+  create_table "debts", :force => true do |t|
+    t.float    "amount"
+    t.integer  "owed_from_id"
+    t.integer  "owed_to_id"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+    t.string   "type",         :default => "UnpaidDebt"
+  end
+
+  create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
     t.boolean  "eats_house_food"
@@ -23,16 +32,7 @@ ActiveRecord::Schema.define(:version => 20131207111229) do
     t.string   "remember_token"
   end
 
-  add_index "deakinites", ["email"], :name => "index_deakinites_on_email", :unique => true
-  add_index "deakinites", ["remember_token"], :name => "index_deakinites_on_remember_token"
-
-  create_table "debts", :force => true do |t|
-    t.float    "amount"
-    t.integer  "owed_from_id"
-    t.integer  "owed_to_id"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
-    t.string   "type",         :default => "UnpaidDebt"
-  end
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
 
 end

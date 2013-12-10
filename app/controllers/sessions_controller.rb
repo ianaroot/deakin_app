@@ -5,11 +5,11 @@ class SessionsController < ApplicationController
   end
 
   def create
-    deakinite = Deakinite.find_by_email(params[:email].downcase)
+    user = User.find_by_email(params[:email].downcase)
     p
     p params[:password]
-    if deakinite && deakinite.authenticate(params[:password])
-      sign_in deakinite
+    if user && user.authenticate(params[:password])
+      sign_in user
       redirect_to root_url
     else
       #needs errors

@@ -1,5 +1,5 @@
 FactoryGirl.define do 
-  factory :deakinite do
+  factory :user do
     name              { Faker::Name.name }
     email             { Faker::Internet.email }
     password          { "password" }

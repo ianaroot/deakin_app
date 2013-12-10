@@ -11,7 +11,7 @@ describe "Authenticaion" do
     it { should have_selector('input', value: "Sign in") }
 
     describe "with invalid information" do
-      let(:deakinite) { FactoryGirl.create(:deakinite) }
+      let(:user) { FactoryGirl.create(:user) }
       before { click_button "Sign in" }
 
       it { should have_selector('input', value: "Sign in") }

@@ -16,7 +16,7 @@ class Debt < ActiveRecord::Base
   # validates :owed_from_id, presence: true
   # validates :owed_to_id, presence: true
 
-  belongs_to :owed_to, class_name: "Deakinite"
-  belongs_to :owed_from, class_name: "Deakinite"
+  belongs_to :owed_to, class_name: "User"
+  belongs_to :owed_from, class_name: "User"
 
 end

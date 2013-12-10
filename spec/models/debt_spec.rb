@@ -14,8 +14,8 @@
 require 'spec_helper'
 
 describe Debt do
-  let!(:owed) { FactoryGirl.create(:deakinite) }
-  let!(:ower) { FactoryGirl.create(:deakinite) }
+  let!(:owed) { FactoryGirl.create(:user) }
+  let!(:ower) { FactoryGirl.create(:user) }
   before { @debt = Debt.new(amount: 34.57, owed_from_id: ower.id, owed_to_id: owed.id) }
 
   subject { @debt }
