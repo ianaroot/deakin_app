@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       sign_in user
       redirect_to root_url
     else
-      #needs errors
+      flash[:errors] = "incorrect email or password"
       redirect_to signin_path
     end
   end
