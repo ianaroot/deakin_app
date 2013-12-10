@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131210193258) do
+ActiveRecord::Schema.define(:version => 20131210210038) do
 
   create_table "debts", :force => true do |t|
     t.float    "amount"
@@ -28,7 +28,10 @@ ActiveRecord::Schema.define(:version => 20131210193258) do
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.boolean  "food"
   end
+
+  add_index "expenditures", ["food"], :name => "index_expenditures_on_food"
 
   create_table "users", :force => true do |t|
     t.string   "name"

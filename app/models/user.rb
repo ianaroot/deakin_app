@@ -35,9 +35,9 @@ class User < ActiveRecord::Base
     self.debts_owing.create!(owed_to_id: other_user.id, amount: amount)
   end
 
-  def add_expenditure(amount, date)
+  def add_expenditure(amount, date, food)
     date = Date.new(date[:year],date[:month],date[:day])
-    self.expenditures.create!(amount: amount, date: date)
+    self.expenditures.create!(amount: amount, date: date, food: food)
   end
 
   private
