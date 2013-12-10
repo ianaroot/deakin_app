@@ -9,7 +9,7 @@
 </head>
 <body>
   <%= render 'layouts/nav_bar' %>
-  <div class="container">
+  <div class="container app_layout">
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "alert alert-#{key}") %>
     <% end %>

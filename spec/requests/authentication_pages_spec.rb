@@ -17,4 +17,26 @@ describe "Authenticaion" do
       it { should have_selector('input', value: "Sign in") }
     end
   end
+
 end
+
+# unrelated to actual app, but i can't make any sense of why these
+# tests pass sometimes but not always??
+  # $count = 0
+  # describe "let" do
+  #   let(:count) { $count += 1 }
+
+  #   it "memoizes the value" do
+  #     count.should eq(1)
+  #     count.should eq(1)
+  #   end
+
+  #   it "is not cached across examples" do
+  #     count.should eq(2)
+  #   end
+
+  #   it "blahd" do
+  #     count.should eq(3)
+  #   end
+
+  # end
