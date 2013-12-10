@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
   has_many :debts_owing, foreign_key: "owed_from_id", class_name: "UnpaidDebt"
   has_many :owed_users, through: :debts_owing, source: :owed_to
   has_many :owing_users, through: :debts_owed, source: :owed_from
+  has_many :expenditures
 
   before_save { email.downcase! }
   before_save :create_remember_token
@@ -32,6 +33,11 @@ class User < ActiveRecord::Base
 
   def establish_debt_to(other_user, amount)
     self.debts_owing.create!(owed_to_id: other_user.id, amount: amount)
+  end
+
+  def add_expenditure(amount, date)
+    date = Date.new(date[:year],date[:month],date[:day])
+    self.expenditures.create!(amount: amount, date: date)
   end
 
   private

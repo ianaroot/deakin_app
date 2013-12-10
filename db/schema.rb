@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131207111229) do
+ActiveRecord::Schema.define(:version => 20131210193258) do
 
   create_table "debts", :force => true do |t|
     t.float    "amount"
@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(:version => 20131207111229) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "type",         :default => "UnpaidDebt"
+  end
+
+  create_table "expenditures", :force => true do |t|
+    t.integer  "amount"
+    t.date     "date"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|

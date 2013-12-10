@@ -16,14 +16,14 @@ require 'spec_helper'
 describe Debt do
   let!(:owed) { FactoryGirl.create(:user) }
   let!(:ower) { FactoryGirl.create(:user) }
-  before { @debt = Debt.new(amount: 34.57, owed_from_id: ower.id, owed_to_id: owed.id) }
-
+  before { @debt = ower.establish_debt_to(owed, 52.43)}
   subject { @debt }
 
   it { should respond_to(:amount) }
   it { should respond_to(:owed_to) }
   it { should respond_to(:owed_from) }
-
+  its(:owed_to) { should eq(owed) }
+  its(:owed_from) { should eq(ower) }
 
   it { should be_valid }
 
