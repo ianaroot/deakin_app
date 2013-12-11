@@ -1,14 +1,14 @@
 # == Schema Information
 #
-# Table name: payments
+# Table name: debts
 #
-#  id         :integer          not null, primary key
-#  amount     :float
-#  owed_from  :string(255)
-#  owed_to    :string(255)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  paid       :boolean          default(FALSE)
+#  id           :integer          not null, primary key
+#  amount       :float
+#  owed_from_id :integer
+#  owed_to_id   :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  type         :string(255)      default("UnpaidDebt")
 #
 
 class Debt < ActiveRecord::Base

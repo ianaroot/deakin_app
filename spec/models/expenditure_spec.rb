@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: expenditures
+#
+#  id         :integer          not null, primary key
+#  amount     :integer
+#  date       :date
+#  user_id    :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  food       :boolean
+#
+
 require 'spec_helper'
 
 describe Expenditure do 
