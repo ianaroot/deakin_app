@@ -1,16 +1,16 @@
 <h1>Hello, <%= current_user.name %></h1>
 <%= form_for @house_food do |f| %>
   <%= f.label :house_food %>
-  <%= f.text_field :amount, placeholder: "amount" %>
+  <%= f.text_field :amount, placeholder: "amount", id: "food_expenditure_amount" %>
   <%= f.hidden_field :food, value: true %>
-  <input id="expenditure_date" name="expenditure[date]" type="date" name="bdaytime">
+  <input id="food_expenditure_date" name="expenditure[date]" type="date">
   <%= f.submit value: "record food purchase" %>
 <% end %>
 
 <%= form_for @general_expense do |f| %>
   <%= f.label :general_expense %>
-  <%= f.text_field :amount, placeholder: "amount" %>
+  <%= f.text_field :amount, placeholder: "amount", id: "general_expenditure_amount" %>
   <%= f.hidden_field :food, value: false %>
-  <input id="expenditure_date" name="expenditure[date]" type="date" name="bdaytime">
+  <input id="general_expenditure_date" name="expenditure[date]" type="date">
   <%= f.submit value: "record general house expense" %>
 <% end %>
