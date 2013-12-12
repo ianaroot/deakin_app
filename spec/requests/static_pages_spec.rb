@@ -38,6 +38,31 @@ describe "Static pages" do
             end
           end
         end
+
+        describe "general" do
+          describe "without a date" do
+            before { valid_signin(user) }
+            it "should not make a new expenditure" do
+              fill_in "general_expenditure_amount", with: 45
+              expect { click_button "record general house expense" }.not_to change(Expenditure, :count).by(1)
+            end
+          end
+          describe "without an amout" do
+            before {valid_signin(user) }
+            it "it should not make a new expenditure" do
+              fill_in 'general_expenditure_date', with: "12/12/2013" 
+              expect { click_button "record general house expense" }.not_to change(Expenditure, :count).by(1)
+            end
+          end
+          describe "with amount and date filled in" do
+            before { valid_signin(user) }
+            it "should create a new expenditure" do
+              fill_in 'general_expenditure_date', with: "12/12/2013"  
+              fill_in "general_expenditure_amount", with: 45
+              expect { click_button "record general house expense" }.to change(Expenditure.where(food: false), :count).by(1)
+            end
+          end
+        end
       end
     end
   end
