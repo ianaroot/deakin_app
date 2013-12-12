@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20131210210038) do
     t.string   "type",         :default => "UnpaidDebt"
   end
 
-  create_table "expenditures", :force => true do |t|
+  create_table "expenses", :force => true do |t|
     t.integer  "amount"
     t.date     "date"
     t.integer  "user_id"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(:version => 20131210210038) do
     t.boolean  "food"
   end
 
-  add_index "expenditures", ["food"], :name => "index_expenditures_on_food"
+  add_index "expenses", ["food"], :name => "index_expenses_on_food"
 
   create_table "users", :force => true do |t|
     t.string   "name"

@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: expenditures
+# Table name: expenses
 #
 #  id         :integer          not null, primary key
 #  amount     :integer
@@ -13,13 +13,13 @@
 
 require 'spec_helper'
 
-describe Expenditure do 
+describe Expense do 
   let!(:user) { FactoryGirl.create(:user) }
     before do
       date = Date.new(2013,9,27)
-      @expenditure = user.expenditures.build(amount: 57, date: date, food: true)
+      @expense = user.expenses.build(amount: 57, date: date, food: true)
     end
-  subject { @expenditure }
+  subject { @expense }
 
   it { should respond_to(:date) }
   it { should respond_to(:amount) }
