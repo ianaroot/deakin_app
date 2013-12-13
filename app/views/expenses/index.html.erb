@@ -1,4 +1,6 @@
-<%= @display_month_name %><br>
+<%= @display_month_names[:current] %><br>
+<%= link_to "<<#{@display_month_names[:previous]}", expenses_path(display_month_number: (@display_month_number - 1)) %>     
+<%= link_to "#{@display_month_names[:coming]}>>", expenses_path(display_month_number: (@display_month_number + 1)) %>
 <table border ="1">
   <tr>
     <th>Week</th>
