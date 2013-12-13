@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131210210038) do
+ActiveRecord::Schema.define(:version => 20131212234400) do
 
   create_table "debts", :force => true do |t|
     t.float    "amount"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(:version => 20131210210038) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.boolean  "food"
+    t.integer  "week"
+    t.integer  "month"
   end
 
   add_index "expenses", ["food"], :name => "index_expenses_on_food"

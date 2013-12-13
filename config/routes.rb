@@ -3,7 +3,7 @@ DeakinApp::Application.routes.draw do
   root to: "static_pages#home"
 
   resources :sessions, only: [:new, :create, :destroy]
-  resources :expenses, only: [:create, :destroy]
+  resources :expenses, only: [:create, :destroy, :index]
 
   match '/signin/', to: 'sessions#new'
   match '/signout/', to: 'sessions#destroy' 

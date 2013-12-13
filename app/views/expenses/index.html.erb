@@ -1,0 +1,21 @@
+<%= @display_month_name %><br>
+<table border ="1">
+  <tr>
+    <th>Week</th>
+    <th>Cost</th>
+    <th>Purchaser</th>
+  </tr>
+  <% @expenses.each do |expense| %>
+    <tr>
+      <td>
+        <%= expense.week %>    
+      </td>
+      <td>
+        <%= expense.amount %><br>
+      </td>
+      <td>
+        <%= expense.user.name %><br>
+      </td>
+    </tr>
+  <% end %>
+</table>
