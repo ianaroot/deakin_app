@@ -31,13 +31,18 @@ class ExpensesController < ApplicationController
     # puts "coming number is #{(@display_month_number + 1) % 13}"
 
   if params[:display_month_number]
-    @display_month_number = params[:display_month_number].to_i
+    @display_month_number = params[:display_month_number].to_i % 12
+    @display_year = params[:display_year].to_i + (params[:display_month_number].to_i / 12)
+    puts @display_month_number
+    puts @display_year
   else
     #see explanantion in expense model for subtracting one from month
-    @display_month_number = Date.current.month - 1
+    date = Date.current
+    @display_month_number = date.month - 1
+    @display_year = date.year
   end
-  if !Expense.where(month: @display_month_number).empty?
-    @expenses = Expense.where(month: @display_month_number).order(:week)
+  if !Expense.where(month: @display_month_number).where(date:.empty?
+    @expenses = Expense.where(month: @display_month_number)..where(date:.order(:week)
   else
     @expenses = []
   end

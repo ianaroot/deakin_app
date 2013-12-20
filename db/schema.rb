@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131212234400) do
+ActiveRecord::Schema.define(:version => 20131220075655) do
 
   create_table "debts", :force => true do |t|
     t.float    "amount"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20131212234400) do
     t.boolean  "food"
     t.integer  "week"
     t.integer  "month"
+    t.integer  "year"
   end
 
   add_index "expenses", ["food"], :name => "index_expenses_on_food"
