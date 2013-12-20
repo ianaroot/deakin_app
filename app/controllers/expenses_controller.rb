@@ -41,8 +41,8 @@ class ExpensesController < ApplicationController
     @display_month_number = date.month - 1
     @display_year = date.year
   end
-  if !Expense.where(month: @display_month_number).where(date:.empty?
-    @expenses = Expense.where(month: @display_month_number)..where(date:.order(:week)
+  if !Expense.where(month: @display_month_number).where(year: @display_year).empty?
+    @expenses = Expense.where(month: @display_month_number).where(year: @display_year).order(:week)
   else
     @expenses = []
   end
