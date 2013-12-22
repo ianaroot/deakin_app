@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: expenditures
+# Table name: expenses
 #
 #  id         :integer          not null, primary key
 #  amount     :integer
@@ -9,6 +9,9 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  food       :boolean
+#  week       :integer
+#  month      :integer
+#  year       :integer
 #
 
 class Expense < ActiveRecord::Base

@@ -13,7 +13,7 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :eats_house_food, :email, :name, :password, :password_confirmation
+  attr_accessible :eats_house_food, :email, :name, :password, :password_confirmation, :primary_rent_payer, :rent
   has_secure_password
 
   has_many :debts_owed, foreign_key: "owed_to_id", class_name: "UnpaidDebt"
