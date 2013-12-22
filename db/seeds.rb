@@ -15,5 +15,5 @@ end
 
 food_or_general = [true, false, true, true, true]
 20.times do
-  User.all.sample.expenses.create!(amount: (rand(15000) / 100.0), food: food_or_general.sample, date: (Date.current - 60))
+  User.all.sample.expenses.create!(amount: (rand(15000) / 100.0), food: food_or_general.sample, date: (Date.current - 30))
 end
