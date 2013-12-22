@@ -12,13 +12,14 @@ namespace :debts  do
     general_expenses_per_user = general_expenses_total / User.count
     User.where(eats_house_food: true).each do |eater|
       unless eater.name == "hagen"
+        users_food_expenses = []
         users_food_expenses = eater.expenses.where(food: true)
         puts users_food_expenses
         users_food_expenses_total = 0
         unless users_food_expenses.empty?
           users_food_expenses.each { |exp| users_food_expenses_total += exp.amount }
         end
-        eater.debts_owing.create!(amount: eater.rent + (users_food_expenses - food_expense_per_eater), owed_to: User.where(name: "hagen").id)
+        eater.debts_owing.create!(amount: eater.rent + (users_food_expenses_total - food_expense_per_eater), owed_to_id: User.find_by_primary_rent_payer(true).id)
       end
     end
     User.all.each do |user|
@@ -27,7 +28,7 @@ namespace :debts  do
       unless users_general_expenses.empty?
         users_general_expenses.each { |exp| users_general_expenses_total += exp.amount }
       end
-      user.debts_owing.create!(amount: user.rent + (users_general_expenses - general_expenses_per_user), owed_to: User.where(name: "hagen").id)
+      user.debts_owing.create!(amount: user.rent + (users_general_expenses_total - general_expenses_per_user), owed_to_id: User.find_by_primary_rent_payer(true).id)
     end
   end  
 end
