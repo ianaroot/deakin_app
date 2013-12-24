@@ -3,9 +3,7 @@ namespace :debts  do
     # we subtract one from the month because they are stored that way for the array
     # and then one more because we want the previous month
     month = Date.current.month - 2
-    puts month
     year = Date.current.year
-    puts year
     food_expenses_total = 0
     Expense.where(month: month).where(year: year).where(food: true).each { |exp| food_expenses_total +=  exp.amount }
     food_expense_per_eater = food_expenses_total / User.where(eats_house_food: true).count
@@ -14,7 +12,6 @@ namespace :debts  do
     general_expenses_per_user = general_expenses_total / User.count
     User.where(eats_house_food: true).each do |eater|
       unless eater.name == "hagen"
-        users_food_expenses = []
         users_food_expenses = eater.expenses.where(food: true)
         puts users_food_expenses
         users_food_expenses_total = 0
