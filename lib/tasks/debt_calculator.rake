@@ -13,7 +13,6 @@ namespace :debts  do
     User.where(eats_house_food: true).each do |eater|
       unless eater.name == "hagen"
         users_food_expenses = eater.expenses.where(food: true)
-        puts users_food_expenses
         users_food_expenses_total = 0
         unless users_food_expenses.empty?
           users_food_expenses.each { |exp| users_food_expenses_total += exp.amount }
