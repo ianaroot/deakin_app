@@ -22,7 +22,7 @@ namespace :debts  do
         unless users_food_expenses.empty?
           users_food_expenses.each { |exp| users_food_expenses_total += exp.amount }
         end
-        eater.debts_owing.create!(amount: (eater.rent + (users_food_expenses_total - food_expense_per_eater)).round(2), owed_to_id: User.find_by_primary_rent_payer(true).id)
+        eater.debts_owing.create!(amount: ((users_food_expenses_total - food_expense_per_eater)).round(2), owed_to_id: User.find_by_primary_rent_payer(true).id)
       end
     end
     User.all.each do |user|
