@@ -24,6 +24,12 @@ class Expense < ActiveRecord::Base
   validates :amount, presence: true
   validates :user_id, presence: true
 
+  def self.total_amount_of_expenses_where_month_and_year_and_food(month, year, food)
+    expenses_amount_total = 0.0
+    Expense.where(month: month).where(year: year).where(food: food).each { |exp| expenses_amount_total +=  exp.amount }
+    expenses_amount_total
+  end
+
   private
 
     def create_month

@@ -9,11 +9,9 @@ namespace :debts  do
     #then iterate through users creating debts
 
 
-    food_expenses_total = 0.0
-    Expense.where(month: month).where(year: year).where(food: true).each { |exp| food_expenses_total +=  exp.amount }
+    food_expenses_total = Expense.total_amount_of_expenses_where_month_and_year_and_food(month, year, true)
     food_expense_per_eater = food_expenses_total / User.where(eats_house_food: true).count
-    general_expenses_total = 0.0
-    Expense.where(month: month).where(year: year).where(food: false).each { |exp| general_expenses_total += exp.amount }
+    general_expenses_total = Expense.total_amount_of_expenses_where_month_and_year_and_food(month, year, false)
     general_expenses_per_user = general_expenses_total / User.count
     User.where(eats_house_food: true).each do |eater|
       unless eater.primary_rent_payer == true
