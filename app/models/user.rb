@@ -32,10 +32,6 @@ class User < ActiveRecord::Base
   validates :password, presence: true
   validates :password_confirmation, presence: true
 
-  def establish_debt_to(other_user, amount)
-    self.debts_owing.create!(owed_to_id: other_user.id, amount: amount)
-  end
-
   private
 
     def create_remember_token
