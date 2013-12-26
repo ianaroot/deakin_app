@@ -16,7 +16,7 @@ require 'spec_helper'
 describe Debt do
   let!(:owed) { FactoryGirl.create(:user) }
   let!(:ower) { FactoryGirl.create(:user) }
-  before { @debt = ower.debts_owing.create(owed_to_id: owed, amount: 52.43)}
+  before { @debt = ower.debts_owing.create(owed_to_id: owed.id, amount: 52.43)}
   subject { @debt }
 
   it { should respond_to(:amount) }

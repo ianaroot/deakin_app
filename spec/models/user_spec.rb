@@ -112,7 +112,7 @@ describe User do
     let(:other_user) { FactoryGirl.create(:user) }
     before do
       @user.save
-      @user.debts_owing.create(owed_to_id: other_user, amount: 34.57)
+      @user.debts_owing.create(owed_to_id: other_user.id, amount: 34.57)
     end
 
     its(:owed_users) { should include(other_user) }
@@ -123,7 +123,7 @@ describe User do
     let(:other_user) { FactoryGirl.create(:user) }
     before do
       @user.save
-      other_user.debts_owing.create(owed_to_id: @user, amount: 52.00)
+      other_user.debts_owing.create(owed_to_id: @user.id, amount: 52.00)
     end
 
     its(:owing_users) { should include(other_user) }
