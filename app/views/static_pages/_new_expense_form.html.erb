@@ -1,0 +1,19 @@
+<%= form_for expense do |f| %>
+  <%= f.label :expense %>
+  <%= f.text_field :amount, placeholder: "amount", id: "#{expense}_amount" %>
+  <%= f.hidden_field :food, value: type %>
+  <input id="#{expense}_date" name="expense[date]" type="date">
+  <%= f.submit value: "record #{expense} purchase" %>
+<% end %>
+
+
+
+
+
+<%= form_for expense do |f| %>
+  <%= f.label :expense %>
+  <%= f.text_field :amount, placeholder: "amount", id: "#{expense}_amount" %>
+  <%= f.hidden_field :food, value: type %>
+  <input id="#{expense}_date" name="expense[date]" type="date">
+  <%= f.submit value: "record #{expense} expense" %>
+<% end %>
