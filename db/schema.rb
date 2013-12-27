@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131221013331) do
+ActiveRecord::Schema.define(:version => 20131227065626) do
 
   create_table "debts", :force => true do |t|
     t.float    "amount"
@@ -31,19 +31,19 @@ ActiveRecord::Schema.define(:version => 20131221013331) do
     t.integer  "week"
     t.integer  "month"
     t.integer  "year"
-    t.boolean  "food"
-    t.string   "type"
+    t.string   "kind"
   end
 
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
-    t.boolean  "eats_house_food", :default => true
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
+    t.boolean  "eats_house_food",    :default => true
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
     t.string   "password_digest"
     t.string   "remember_token"
     t.integer  "rent"
+    t.boolean  "primary_rent_payer"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
