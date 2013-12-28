@@ -2,7 +2,7 @@ class StaticPagesController < ApplicationController
 
   def home
     if signed_in?
-      @house_food = current_user.expenses.build(kind: "food")
+      @food_expense = current_user.expenses.build(kind: "food")
       @general_expense = current_user.expenses.build(kind: "genera")
       @debts_owed = current_user.debts_owed.where(type: "UnpaidDebt")
       @debts_owing = current_user.debts_owing.where(type: "UnpaidDebt")

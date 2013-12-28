@@ -4,21 +4,8 @@
 <% end %>
 
 <!-- these two forms can be refactored down to a partial -->
-<%= form_for @house_food do |f| %>
-  <%= f.label :house_food %>
-  <%= f.text_field :amount, placeholder: "amount", id: "food_expense_amount" %>
-  <%= f.hidden_field :kind, value: "food" %>
-  <input id="food_expense_date" name="expense[date]" type="date">
-  <%= f.submit value: "record food purchase" %>
-<% end %>
-<%= form_for @general_expense do |f| %>
-  <%= f.label :general_expense %>
-  <%= f.text_field :amount, placeholder: "amount", id: "general_expense_amount" %>
-  <%= f.hidden_field :kind, value: "general" %>
-  <input id="general_expense_date" name="expense[date]" type="date">
-  <%= f.submit value: "record general house expense" %>
-<% end %>
-
+<%= render partial: 'new_expense_form', locals: { kind:  "food", expense: @food_expense} %>
+<%= render partial: 'new_expense_form', locals: { kind:  "general", expense: @general_expense } %>
 <% @debts_owed.each do |debt| %>
   <h4><%= User.find(debt.owed_from_id).name %> owes you $<%= debt.amount %><h4><br>
 <% end %>
