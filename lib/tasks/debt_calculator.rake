@@ -19,7 +19,7 @@ namespace :debts  do
     puts "general_expenses_per_user is #{general_expenses_per_user}"
     User.where(eats_house_food: true).each do |eater|
       unless eater.primary_rent_payer == true
-        users_food_expenses = eater.expenses.where(food: true)
+        users_food_expenses = eater.expenses.where(kind: "food")
         users_food_expenses_total = 0.0
         unless users_food_expenses.empty?
           users_food_expenses.each { |exp| users_food_expenses_total += exp.amount }
@@ -29,7 +29,7 @@ namespace :debts  do
     end
     User.all.each do |user|
       unless user.primary_rent_payer == true
-        users_general_expenses = user.expenses.where(food: false)
+        users_general_expenses = user.expenses.where(kind: "general")
         users_general_expenses_total = 0.0
         unless users_general_expenses.empty?
           users_general_expenses.each { |exp| users_general_expenses_total += exp.amount }
