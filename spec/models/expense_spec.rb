@@ -24,7 +24,7 @@ describe Expense do
   it { should respond_to(:date) }
   it { should respond_to(:amount) }
   it { should respond_to(:user) }
-  it { should respond_to(:food)}
+  it { should respond_to(:kind)}
 
   it { should be_valid }
 

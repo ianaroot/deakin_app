@@ -15,7 +15,7 @@
 #
 
 class Expense < ActiveRecord::Base
-  attr_accessible :date, :amount, :food, :user_id
+  attr_accessible :date, :amount, :kind, :user_id
   belongs_to :user
 
   before_save :create_week, :create_month, :create_year
