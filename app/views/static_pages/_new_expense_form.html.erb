@@ -1,7 +1,7 @@
-<%= form_for expense do |f| %>
-  <%= f.label :kind %>
-  <%= f.text_field :amount, placeholder: "amount", id: "#{kind}_amount" %>
+<%= form_for expense, html: { id: "#{kind}_expense_form"} do |f| %>
+  <%= f.label :"#{kind}" %>
+  <%= f.text_field :amount, placeholder: "amount", id: "#{kind}_expense_amount" %>
   <%= f.hidden_field :kind, value: kind %>
-  <input id="#{kind}_date" name="expense[date]" type="date">
+  <input id="expense_date" name="expense[date]" type="date">
   <%= f.submit value: "record #{kind} purchase" %>
 <% end %>
