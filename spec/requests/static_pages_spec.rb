@@ -59,7 +59,7 @@ describe "Static pages" do
             it "should create a new expense" do
               fill_in 'general_expense_date', with: "12/12/2013"  
               fill_in "general_expense_amount", with: 45
-              expect { click_button "record general house expense" }.to change(Expense.where(food: false), :count).by(1)
+              expect { click_button "record general house expense" }.to change(Expense.where(kind: "general"), :count).by(1)
             end
           end
         end
