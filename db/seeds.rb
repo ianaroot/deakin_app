@@ -13,7 +13,7 @@ names.each do |name, attrs|
   deak.save
 end
 
-food_or_general = [true, false, true, true, true]
+food_or_general = ["food", "general", "food", "food", "food"]
 20.times do
-  User.all.sample.expenses.create!(amount: (rand(15000) / 100.0), food: food_or_general.sample, date: (Date.current - 30))
+  User.all.sample.expenses.create!(amount: (rand(15000) / 100.0), kind: food_or_general.sample, date: (Date.current - 30))
 end
