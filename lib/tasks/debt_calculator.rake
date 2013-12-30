@@ -9,11 +9,11 @@ namespace :debts  do
     #then iterate through users creating debts
 
 
-    food_expenses_total = Expense.total_amount_of_expenses_where_month_and_year_and_food(month, year, true)
+    food_expenses_total = Expense.total_amount_of_expenses_where_month_and_year_and_food(month, year, "food")
     puts "food_expenses_total is #{food_expenses_total}"
     food_expense_per_eater = food_expenses_total / User.where(eats_house_food: true).count
     puts "food_expense_per_eater is #{food_expense_per_eater}"
-    general_expenses_total = Expense.total_amount_of_expenses_where_month_and_year_and_food(month, year, false)
+    general_expenses_total = Expense.total_amount_of_expenses_where_month_and_year_and_food(month, year, "general")
     puts "general_expenses_total is #{general_expenses_total}"
     general_expenses_per_user = general_expenses_total / User.count
     puts "general_expenses_per_user is #{general_expenses_per_user}"
