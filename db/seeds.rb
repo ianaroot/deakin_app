@@ -5,7 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-names = {schlag: [810, false], shark: [680, true], snoop:[730, true], sharman: [730, true], hagen: [800, true, true]}
+names = {schlag: [817, false], shark: [610, true], snoop:[750, true], sharman: [750, true], hagen: [765, true, true], jess: [750, true],
+        david: [610, true], ian: [805, true], pebbles: [793]}
 
 names.each do |name, attrs|
   deak = User.new(name: name, email: "#{name}@#{name}.com", password: "password",
