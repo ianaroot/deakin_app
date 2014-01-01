@@ -7,5 +7,11 @@
 <%= render partial: 'new_expense_form', locals: { kind:  "food", expense: @food_expense} %>
 <%= render partial: 'new_expense_form', locals: { kind:  "general", expense: @general_expense } %>
 <% @debts_owed.each do |debt| %>
+<%= puts debt %>
+  <%= form_for debt, remote: true do |f| %>
+    <div><%= f.hidden_field :owed_to_id %></div>
+    <%= f.submit "Mark Paid", class: "btn btn-large btn-primary" %>
+  <% end %>
+
   <h4><%= User.find(debt.owed_from_id).name %> owes you $<%= debt.amount %><h4><br>
 <% end %>

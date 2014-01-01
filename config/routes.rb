@@ -4,9 +4,11 @@ DeakinApp::Application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
   resources :expenses, only: [:create, :destroy, :index]
+  resources :unpaid_debts, only: [:update]
 
   match '/signin/', to: 'sessions#new'
   match '/signout/', to: 'sessions#destroy' 
+
 
   # match '/home', to: "static_pages#home"
 
