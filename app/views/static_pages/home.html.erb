@@ -9,7 +9,6 @@
 <% @debts_owed.each do |debt| %>
 <%= puts debt %>
   <%= form_for debt, remote: true do |f| %>
-    <div><%= f.hidden_field :owed_to_id %></div>
     <%= f.submit "Mark Paid", class: "btn btn-large btn-primary" %>
   <% end %>
 

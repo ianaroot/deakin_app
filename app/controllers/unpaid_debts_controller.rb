@@ -1,7 +1,9 @@
 class UnpaidDebtsController < ApplicationController
 
 def update
-  puts "yo"
-  puts params[:unpaid_debt]
+  puts params
+  debt = UnpaidDebt.find(params[:id])
+  debt.record_as_paid
+  debt.save!
 end
 end
